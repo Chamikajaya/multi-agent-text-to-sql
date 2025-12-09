@@ -5,7 +5,6 @@ Handles database initialization, connection management, and data loading from CS
 """
 
 import sqlite3
-import os
 from pathlib import Path
 import pandas as pd
 from typing import Dict
@@ -31,6 +30,7 @@ def initialize_database(force_recreate: bool = False) -> str:
         FileNotFoundError: If any CSV file is missing
         Exception: If database creation fails
     """
+    
     # Check if database already exists
     if DB_PATH.exists() and not force_recreate:
         print(f"Database already exists at: {DB_PATH}")

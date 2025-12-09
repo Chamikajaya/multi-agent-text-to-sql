@@ -8,9 +8,9 @@ Contains database settings, LLM configuration, and application constants.
 import os
 from pathlib import Path
 
-# ============================================================================
+
 # PROJECT PATHS
-# ============================================================================
+
 
 # Root directory of the project
 PROJECT_ROOT = Path(__file__).parent.parent
@@ -28,9 +28,8 @@ DB_NAME = "ecommerce.db"
 DB_PATH = DB_DIR / DB_NAME
 
 
-# ============================================================================
+
 # LLM CONFIGURATION
-# ============================================================================
 
 # Google Gemini model name
 LLM_MODEL = "gemini-2.5-flash"
@@ -48,23 +47,16 @@ LLM_TIMEOUT = None
 LLM_MAX_RETRIES = 2
 
 
-# ============================================================================
 # APPLICATION SETTINGS
-# ============================================================================
 
 # Maximum number of retry attempts for SQL error correction
 MAX_SQL_RETRY_ATTEMPTS = 3
 
-# Recursion limit for LangGraph workflow
-GRAPH_RECURSION_LIMIT = 50
-
-# Default limit for SQL query results (if not specified by user)
+# Default limit for SQL query results
 DEFAULT_SQL_LIMIT = 10
 
 
-# ============================================================================
 # CSV DATA FILES
-# ============================================================================
 
 # Dictionary mapping table names to their CSV file paths
 CSV_FILES = {
@@ -78,9 +70,9 @@ CSV_FILES = {
 }
 
 
-# ============================================================================
+
 # ENVIRONMENT VARIABLES
-# ============================================================================
+
 
 def get_google_api_key() -> str:
     """

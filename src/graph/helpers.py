@@ -22,6 +22,7 @@ def check_relevance(state: GraphState) -> str:
     Returns:
         Route decision: "relevant" or "end"
     """
+    
     # If final_answer is already set by guardrails, it's either greeting or out-of-scope
     if state.get("final_answer"):
         return "end"

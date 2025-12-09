@@ -1,5 +1,5 @@
 """
-Database Schema Definition
+Database Schema Definition For Looker E-Commerce Dataset
 
 Contains the detailed schema documentation used by SQL generation agents
 to understand the database structure and relationships.

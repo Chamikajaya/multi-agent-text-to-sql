@@ -31,6 +31,7 @@ async def process_question_stream(user_query: str) -> AsyncGenerator[Dict[str, A
         - final: When the entire workflow completes
         - error: When an exception occurs
     """
+    
     # Initialize the graph state
     initial_state = {
         "user_query": user_query,
@@ -88,13 +89,14 @@ async def process_question_stream(user_query: str) -> AsyncGenerator[Dict[str, A
                     "decide_visualization_agent",
                     "visualization_agent"
                 ]:
-                    # Extract output from event data
+                    # Extract output from event data (contains full state)
                     output = event.get("data", {}).get("output", {})
                     
                     yield {
                         "type": "node_end",
                         "node": event_name,
                         "output": output,
+                        "state": output,  # Include full state for detailed UI display
                         "timestamp": event.get("timestamp")
                     }
         

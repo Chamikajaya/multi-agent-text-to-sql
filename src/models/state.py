@@ -6,7 +6,6 @@ Each agent node can read from and write to this state.
 """
 
 from langgraph.graph import MessagesState
-from typing import Optional
 
 
 class GraphState(MessagesState):

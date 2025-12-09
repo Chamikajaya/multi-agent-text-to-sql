@@ -23,19 +23,14 @@ The system uses a **LangGraph** multi-agent workflow with seven specialized agen
 6. **Visualization Decision Agent**: Determines if charts would help
 7. **Visualizer Agent**: Generates Plotly charts when appropriate
 
-```
-User Query → Guardrails → SQL Gen → Execute → Analysis → Viz Decision → Visualizer
-                   ↓                      ↓
-              (invalid)           (error → Correction → retry)
-                   ↓                      
-                  END
-```
+![Architecture Diagram](./text2sql_workflow.png)
+
 
 ## 📋 Requirements
 
 - Python 3.10 or higher
 - Google AI API key (for Gemini model)
-- CSV data files in the `data/` directory
+- CSV data files in the `data/` directory. You can download the data from the Looker e-commerce database - https://www.kaggle.com/datasets/mustafakeser4/looker-ecommerce-bigquery-dataset
 
 ## 🚀 Quick Start
 
@@ -105,8 +100,7 @@ Try asking questions like:
 - What is the total revenue by product category?
 
 **👥 Customer Analysis**
-- How many users are from California?
-- What is the average age of customers by state?
+- How many users are from Atlanta?
 - Show me the distribution of users by traffic source
 
 **📦 Product Queries**
@@ -115,51 +109,9 @@ Try asking questions like:
 - Show me products with the highest profit margin
 
 **📈 Trends**
-- What are the daily order trends for last month?
 - How has revenue changed over time?
 - Show me seasonal patterns in sales
 
-## 📁 Project Structure
-
-```
-agentic-text-to-sql/
-├── src/
-│   ├── __init__.py
-│   ├── config.py                    # Configuration and settings
-│   ├── database/
-│   │   ├── __init__.py
-│   │   ├── db_manager.py           # Database initialization
-│   │   └── schema.py               # Schema definitions
-│   ├── models/
-│   │   ├── __init__.py
-│   │   ├── state.py                # Graph state definition
-│   │   └── responses.py            # Pydantic response models
-│   ├── agents/
-│   │   ├── __init__.py
-│   │   ├── guardrails.py           # Input validation
-│   │   ├── sql_generator.py        # SQL generation
-│   │   ├── sql_executor.py         # Query execution
-│   │   ├── error_corrector.py      # Error fixing
-│   │   ├── analyzer.py             # Result analysis
-│   │   ├── viz_decision.py         # Visualization decision
-│   │   └── visualizer.py           # Chart generation
-│   ├── graph/
-│   │   ├── __init__.py
-│   │   ├── workflow.py             # LangGraph workflow
-│   │   ├── helpers.py              # Routing functions
-│   │   └── streaming.py            # Async streaming
-│   └── utils/
-│       ├── __init__.py
-│       └── llm.py                  # LLM initialization
-├── data/                            # CSV data files
-├── db_data/                         # SQLite database (auto-created)
-├── .chainlit/
-│   └── config.toml                 # Chainlit configuration
-├── app.py                          # Main Chainlit application
-├── requirements.txt                # Python dependencies
-├── .env.example                    # Environment template
-└── README.md                       # This file
-```
 
 ## 🗄️ Database Schema
 
@@ -196,65 +148,6 @@ Customize the interface in `.chainlit/config.toml`:
 - Session timeout
 - UI layout options
 
-## 🧪 Testing
-
-Test individual components:
-
-```bash
-# Test database initialization
-python -m src.database.db_manager
-
-# Test LLM connection
-python -c "from src.utils.llm import get_llm; llm = get_llm(); print('✓ LLM initialized')"
-
-# Test graph creation
-python -c "from src.graph.workflow import create_text2sql_graph; g = create_text2sql_graph(); print('✓ Graph created')"
-```
-
-## 🐛 Troubleshooting
-
-### Database Not Found
-
-If you see database errors, initialize it manually:
-
-```bash
-python -m src.database.db_manager
-```
-
-### API Key Issues
-
-Ensure your `.env` file exists and contains a valid `GOOGLE_API_KEY`:
-
-```bash
-# Check if .env exists
-cat .env  # Linux/Mac
-type .env  # Windows
-```
-
-### Import Errors
-
-Make sure you're in the virtual environment and dependencies are installed:
-
-```bash
-pip install -r requirements.txt
-```
-
-### Port Already in Use
-
-If port 8000 is busy, specify a different port:
-
-```bash
-chainlit run app.py --port 8001
-```
-
-## 📝 Code Comments
-
-The codebase includes comprehensive inline comments explaining:
-
-- **Function purposes**: What each function does
-- **Parameter descriptions**: Input and output specifications
-- **Complex logic**: Step-by-step explanations of algorithms
-- **Design decisions**: Why certain approaches were chosen
 
 ## 🤝 Contributing
 
@@ -281,4 +174,4 @@ Built with:
 
 ---
 
-**Ready to explore your data? Start the app and ask away! 🚀**
+**Built by Chamika Jayasinghe ❤️**
