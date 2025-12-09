@@ -5,11 +5,6 @@ A production-ready multi-agent system for converting natural language queries
 into SQL, executing them against an e-commerce database, and presenting results
 with optional visualizations.
 
-This application uses:
-- Google Gemini for natural language understanding
-- LangGraph for multi-agent workflow orchestration
-- Chainlit for the interactive chat interface
-- Plotly for data visualizations
 """
 
 import chainlit as cl

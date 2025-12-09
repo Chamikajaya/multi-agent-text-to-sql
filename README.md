@@ -2,6 +2,11 @@
 
 A production-ready multi-agent system that converts natural language questions into SQL queries, executes them against an e-commerce database, and presents results with optional visualizations.
 
+<div align="center">
+  <video src="demo.mp4" controls muted autoplay loop style="max-width: 100%; height: auto;"></video>
+</div>
+
+
 ## 🌟 Features
 
 - **Natural Language to SQL**: Ask questions in plain English, get SQL automatically
