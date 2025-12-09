@@ -1,3 +1,10 @@
 .venv/
 data/
 research/db_data/
+__pycache__/
+.chainlit/
+.env.example
+.env
+db_data/
+.files/
+

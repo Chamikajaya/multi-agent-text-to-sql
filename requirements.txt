@@ -1,0 +1,22 @@
+# Core LangChain and LangGraph dependencies
+langchain-google-genai>=2.0.0
+langgraph>=0.2.0
+langchain-core>=0.3.0
+
+# Chainlit for UI
+chainlit>=1.0.0
+
+# Data processing
+pandas>=2.0.0
+
+# Visualization
+plotly>=5.0.0
+
+# Data validation
+pydantic>=2.0.0
+
+# Environment management
+python-dotenv>=1.0.0
+
+# Additional utilities
+typing-extensions>=4.0.0
